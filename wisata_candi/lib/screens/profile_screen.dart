@@ -10,8 +10,8 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   //TODO: 1. deklarasikan variabel yg dibutuhkan
   bool isiSignedIn = false;
-  String fullName = 'Kevin';
-  String userName = 'Vin';
+  String fullName = 'Hendri Wijaya';
+  String userName = 'Hendri';
   int favoriteCandiCount = 0;
 
   //TODO: 5. Implementasi fungsi sign in
@@ -53,7 +53,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Container(
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: Colors.deepPurple,
+                              color: Colors.black,
                               width: 2,
                             ),
                             shape: BoxShape.circle,
@@ -69,7 +69,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             onPressed: () {},
                             icon: Icon(
                               Icons.camera_alt,
-                              color: Colors.deepPurple[50],
+                              color: const Color.fromARGB(255, 180, 3, 30),
                             ),
                           ),
                       ],
@@ -82,7 +82,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   height: 20,
                 ),
                 Divider(
-                  color: Colors.deepPurple[100],
+                  color: const Color.fromARGB(255, 138, 9, 9),
                 ),
                 const SizedBox(
                   height: 4,
@@ -95,7 +95,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         children: [
                           Icon(
                             Icons.lock,
-                            color: Colors.amber,
+                            color: Color.fromARGB(255, 255, 191, 0),
                           ),
                           SizedBox(
                             width: 8,

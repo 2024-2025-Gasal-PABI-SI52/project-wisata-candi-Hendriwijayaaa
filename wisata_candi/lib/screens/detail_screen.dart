@@ -34,7 +34,7 @@ class DetailScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(16),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.deepPurple[100]?.withOpacity(0.8),
+                        color: const Color.fromARGB(255, 21, 45, 255)?.withOpacity(0.8),
                         shape: BoxShape.circle,
                       ),
                       child: IconButton(
