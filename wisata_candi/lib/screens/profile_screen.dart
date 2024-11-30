@@ -8,23 +8,23 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  //TODO: 1. deklarasikan variabel yg dibutuhkan
-  bool isiSignedIn = false;
-  String fullName = 'Hendri Wijaya';
-  String userName = 'Hendri';
-  int favoriteCandiCount = 0;
+  // TODO: 1. Deklarasikan variabel yang dibutuhkan
+  bool isSignedIn = false;
+  String fullName = 'Hendri';
+  String userName = 'Wijaya';
+  int favoritCandiCount = 0;
 
-  //TODO: 5. Implementasi fungsi sign in
-  void signIn() {
+  //TODO: 5. Implementasi fungsi SignIn
+  void SignIn() {
     setState(() {
-      isiSignedIn = !isiSignedIn;
+      isSignedIn = !isSignedIn;
     });
   }
 
-  //TODO: 6. Implementasu fungsi sign out
-  void signOut() {
+  //TODO: 6. Implementasi fungsi SignOut
+  void SignOut() {
     setState(() {
-      isiSignedIn = !isiSignedIn;
+      isSignedIn = !isSignedIn;
     });
   }
 
@@ -42,7 +42,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
-                //TODO: 2. buat bgian profile header (isi gmbar profile)
+                //Tombol Back Custom
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple[100]?.withOpacity(0.8),
+                        shape: BoxShape.circle,
+                      ),
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(Icons.arrow_back),
+                      ),
+                    ),
+                  ),
+                ),
+                //TODO: 2. buat bagian Profile Header(isinya gambar profil)
                 Align(
                   alignment: Alignment.topCenter,
                   child: Padding(
@@ -52,37 +71,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 2,
-                            ),
-                            shape: BoxShape.circle,
-                          ),
+                              border: Border.all(
+                                color: Colors.deepPurple,
+                                width: 2,
+                              ),
+                              shape: BoxShape.circle),
                           child: const CircleAvatar(
                             radius: 50,
                             backgroundImage:
                                 AssetImage('images/placeholder_image.png'),
                           ),
                         ),
-                        if (isiSignedIn)
+                        if (isSignedIn)
                           IconButton(
                             onPressed: () {},
                             icon: Icon(
                               Icons.camera_alt,
-                              color: const Color.fromARGB(255, 180, 3, 30),
+                              color: Colors.deepPurple[50],
                             ),
                           ),
                       ],
                     ),
                   ),
                 ),
-                //TODO: 3. buat profile info (isi info profile)
-                //baris 1 pengguna
+                //TODO: 3. Buat bagian profile info (isinya info profil)
+                //Baris 1 Profile Info Pengguna
                 const SizedBox(
                   height: 20,
                 ),
                 Divider(
-                  color: const Color.fromARGB(255, 138, 9, 9),
+                  color: Colors.deepPurple[100],
                 ),
                 const SizedBox(
                   height: 4,
@@ -90,12 +108,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Row(
                   children: [
                     SizedBox(
+                      //media query untuk membagi 3 dalam satu layar
                       width: MediaQuery.of(context).size.width / 3,
                       child: const Row(
                         children: [
                           Icon(
                             Icons.lock,
-                            color: Color.fromARGB(255, 255, 191, 0),
+                            color: Colors.amber,
                           ),
                           SizedBox(
                             width: 8,
@@ -109,15 +128,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ': $userName',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
+                        child: Text(
+                      ': $userName',
+                      style: const TextStyle(fontSize: 18),
+                    )),
                   ],
                 ),
-
-                //baris 2 nama
+                //Baris 2 Profile Info Nama
                 const SizedBox(
                   height: 4,
                 ),
@@ -130,6 +147,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Row(
                   children: [
                     SizedBox(
+                      //media query untuk membagi 3 dalam satu layar
                       width: MediaQuery.of(context).size.width / 3,
                       child: const Row(
                         children: [
@@ -151,13 +169,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Expanded(
                         child: Text(
                       ': $fullName',
-                      style: TextStyle(fontSize: 18),
+                      style: const TextStyle(fontSize: 18),
                     )),
-                    if (isiSignedIn) const Icon(Icons.edit),
+                    if (isSignedIn) const Icon(Icons.edit),
                   ],
                 ),
-
-                //baris 3 favorit
+                //Baris 3 Profile Info Favorite
                 const SizedBox(
                   height: 4,
                 ),
@@ -170,6 +187,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Row(
                   children: [
                     SizedBox(
+                      //media query untuk membagi 3 dalam satu layar
                       width: MediaQuery.of(context).size.width / 3,
                       child: const Row(
                         children: [
@@ -189,15 +207,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ': $favoriteCandiCount',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
+                        child: Text(
+                      ': $favoritCandiCount',
+                      style: const TextStyle(fontSize: 18),
+                    )),
                   ],
                 ),
-
-                //TODO: 4. buat bgian profile action (isi tombol signin/signout)
+                //TODO: 4. Buat bagian profile action (isnya tombol signin/ signout)
                 const SizedBox(
                   height: 4,
                 ),
@@ -205,13 +221,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   color: Colors.deepPurple[100],
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 4,
                 ),
-                isiSignedIn
+                isSignedIn
                     ? TextButton(
-                        onPressed: signOut, child: const Text('Sign Out'))
+                        onPressed: SignOut, child: const Text('Sign Out'))
                     : TextButton(
-                        onPressed: signIn, child: const Text('Sign In'))
+                        onPressed: SignIn, child: const Text('Sign In'))
               ],
             ),
           ),
