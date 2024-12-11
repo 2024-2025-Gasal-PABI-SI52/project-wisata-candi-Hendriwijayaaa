@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:wisata_candi/models/candi.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:project_wisata_candi/models/candi.dart';
 
 class DetailScreen extends StatelessWidget {
   final Candi candi;
@@ -14,10 +14,10 @@ class DetailScreen extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              //DETAIL HEADER
-              //Image Utama
               Stack(
                 children: [
+                  // Detail Header
+                  //Image Utama
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: ClipRRect(
@@ -30,7 +30,7 @@ class DetailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  //Tombol Back Custom
+                  //Tombol back Custom
                   Padding(
                     padding: const EdgeInsets.all(16),
                     child: Container(
@@ -39,20 +39,17 @@ class DetailScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                       child: IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
+                        onPressed: () {},
                         icon: const Icon(Icons.arrow_back),
                       ),
                     ),
-                  ),
+                  )
                 ],
               ),
-              //Detail Info
+              // Detail info
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
-                  //main ny = Vertical, cross = horizontal
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //Info Atas
@@ -68,8 +65,7 @@ class DetailScreen extends StatelessWidget {
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.favorite_border)),
+                            onPressed: () {}, icon: const Icon(Icons.favorite))
                       ],
                     ),
                     //Info Tengah
@@ -92,7 +88,7 @@ class DetailScreen extends StatelessWidget {
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
-                        Text(': ${candi.location}'),
+                        Text(': ${candi.location}')
                       ],
                     ),
                     Row(
@@ -111,7 +107,7 @@ class DetailScreen extends StatelessWidget {
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
-                        Text(': ${candi.built}'),
+                        Text(': ${candi.built}')
                       ],
                     ),
                     Row(
@@ -130,10 +126,10 @@ class DetailScreen extends StatelessWidget {
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
-                        Text(': ${candi.type}'),
+                        Text(': ${candi.type}')
                       ],
                     ),
-                    //Pemmisah
+                    //Pemisah
                     const SizedBox(
                       height: 16,
                     ),
@@ -143,20 +139,18 @@ class DetailScreen extends StatelessWidget {
                     const SizedBox(
                       height: 16,
                     ),
-
                     //Info Bawah
                     const Text(
                       'Deskripsi',
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
-                    //Jarak
                     const SizedBox(
                       height: 16,
                     ),
                     Text(
                       candi.description,
-                    ),
+                    )
                   ],
                 ),
               ),
@@ -176,15 +170,14 @@ class DetailScreen extends StatelessWidget {
                       height: 16,
                     ),
                     const Text(
-                      'Galeri',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      'Gallery',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
+                    // Gallery Gambar Horizontal
                     SizedBox(
                       height: 100,
                       child: ListView.builder(
@@ -194,34 +187,31 @@ class DetailScreen extends StatelessWidget {
                           return Padding(
                             padding: const EdgeInsets.only(right: 8),
                             child: GestureDetector(
-                              onTap: () {},
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    border: Border.all(
-                                      color: Colors.deepPurple.shade100,
-                                      width: 2,
-                                    )),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: CachedNetworkImage(
-                                    imageUrl: candi.imageUrls[index],
-                                    height: 120,
-                                    width: 120,
-                                    fit: BoxFit.cover,
-                                    placeholder: (context, url) => Container(
-                                      width: 120,
+                                onTap: () {},
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      border: Border.all(
+                                        color: Colors.deepPurple.shade100,
+                                        width: 2,
+                                      )),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: CachedNetworkImage(
+                                      imageUrl: candi.imageUrls[index],
                                       height: 120,
-                                      color: Colors.deepPurple[50],
-                                    ),
-                                    errorWidget: (context, url, error) =>
-                                        const Icon(
-                                      (Icons.error),
+                                      width: 120,
+                                      fit: BoxFit.cover,
+                                      placeholder: (context, url) => Container(
+                                        width: 120,
+                                        height: 120,
+                                        color: Colors.deepPurple[50],
+                                      ),
+                                      errorWidget: (context, url, error) =>
+                                          const Icon(Icons.error),
                                     ),
                                   ),
-                                ),
-                              ),
-                            ),
+                                )),
                           );
                         },
                       ),
@@ -229,13 +219,8 @@ class DetailScreen extends StatelessWidget {
                     const SizedBox(
                       height: 4,
                     ),
-                    const Text(
-                      'Tap untuk memperbesar',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.black54,
-                      ),
-                    ),
+                    const Text("Tap untuk memperbesar",
+                        style: TextStyle(fontSize: 12, color: Colors.black54)),
                   ],
                 ),
               ),

@@ -1,6 +1,4 @@
-import 'package:wisata_candi/models/candi.dart';
-
-import '../models/candi.dart';
+import 'package:project_wisata_candi/models/candi.dart';
 
 var candiList = [
   Candi(
@@ -37,7 +35,7 @@ var candiList = [
   ),
   Candi(
     name: 'Candi Prambanan',
-    location: 'D.I. Yogyakarta',
+    location: 'Daerah Istimewa Yogyakarta',
     description:
         'Candi Prambanan adalah candi Hindu terbesar di Indonesia, didirikan pada abad ke-9 Masehi dan dipersembahkan untuk Trimurti Hindu: Brahma, Wisnu, dan Siwa. Terletak di Daerah Istimewa Yogyakarta dan Jawa Tengah, kompleks candi ini mencakup Bokoharjo, Prambanan, Sleman, Yogyakarta, serta Tlogo, Prambanan, Klaten, Jawa Tengah. Candi ini termasuk Situs Warisan Dunia UNESCO, memiliki arsitektur tinggi dan ramping, dengan candi Siwa sebagai pusat dengan ketinggian 47 meter. Dibangun mulai sekitar tahun 850 Masehi oleh Rakai Pikatan dan dikembangkan oleh Balitung Maha Sambu dari kerajaan Medang Mataram, Prambanan menjadi daya tarik wisatawan global.',
     built: 'Abad ke-9',
@@ -101,7 +99,7 @@ var candiList = [
   ),
   Candi(
     name: 'Candi Sari',
-    location: 'D.I. Yogyakarta',
+    location: 'Daerah Istimewa Yogyakarta',
     description:
         'Candi Sari, atau Candi Bendah, adalah candi Buddha yang terletak di Desa Tirtomartani, Sleman, Yogyakarta. Dibangun pada abad ke-8 dan ke-9 saat Kerajaan Mataram Kuno, candi ini memiliki 9 stupa di bagian atasnya yang tersusun dalam 3 deretan sejajar, mirip dengan Candi Borobudur. Bangunannya mirip dengan Candi Plaosan dan memiliki ruangan bertingkat dua di bawah stupa, mungkin digunakan untuk meditasi biksu. Dulu digunakan sebagai Vihara Buddha untuk belajar dan mengajar para biksu.',
     built: 'Abad ke-8',

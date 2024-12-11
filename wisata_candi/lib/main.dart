@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:wisata_candi/data/candi_data.dart';
-import 'package:wisata_candi/screens/detail_screen.dart';
-import 'package:wisata_candi/screens/home_screen.dart';
-import 'package:wisata_candi/screens/profile_screen.dart';
-import 'package:wisata_candi/screens/signin_screen.dart';
-import 'package:wisata_candi/screens/signup_screen.dart';
+import 'package:project_wisata_candi/data/candi_data.dart';
+import 'package:project_wisata_candi/screens/detail_screen.dart';
+import 'package:project_wisata_candi/screens/home_screen.dart';
+import 'package:project_wisata_candi/screens/main_screen.dart';
+import 'package:project_wisata_candi/screens/profile_screen.dart';
+import 'package:project_wisata_candi/screens/signin_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -18,24 +18,23 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: "Wisata Candi",
       theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-            iconTheme: IconThemeData(color: Colors.deepPurple),
-            titleTextStyle: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          colorScheme:
-              ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(
-            primary: Colors.deepPurple,
-            surface: Colors.deepPurple[50],
-          ),
-          useMaterial3: true),
-      //home: DetailScreen(candi: candiList[0],),
-      //home: ProfileScreen(),
-      home: SignInScreen(),
-      //home: SignUpScreen(),
-      //home: HomeScreen(),
+        appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(color: Colors.deepPurple),
+          titleTextStyle: TextStyle(color: Colors.deepPurple, 
+          fontSize: 20, fontWeight: FontWeight.bold),  
+        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(
+          primary: Colors.deepPurple,
+          surface: Colors.deepPurple[50],
+        ),
+        useMaterial3: true,
+      ),
+      // home: DetailScreen(
+      //   candi: candiList[0],
+      // ),
+      // home: ProfileScreen(),
+      // home: SignInScreen(),
+      home: const HomeScreen(),
     );
   }
 }

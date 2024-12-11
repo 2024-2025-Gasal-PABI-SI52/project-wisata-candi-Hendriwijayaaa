@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'package:wisata_candi/data/candi_data.dart';
-import 'package:wisata_candi/screens/detail_screen.dart';
-import 'package:wisata_candi/screens/home_screen.dart';
-import 'package:wisata_candi/screens/signup_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   SignInScreen({super.key});
@@ -13,7 +9,7 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  //TODO: 1. Deklarasikan variabel yang dibutuhkan
+  // Deklarasi variabel
   final TextEditingController _usernameController = TextEditingController();
 
   final TextEditingController _passwordController = TextEditingController();
@@ -27,106 +23,87 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //TODO: 2. Pasang AppBar
+      // AppBar
       appBar: AppBar(
         title: const Text('Sign In'),
-        backgroundColor: Color.fromARGB(255, 223, 214, 240),
       ),
-      //TODO: 3. Pasang body
+
+      // Body
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Form(
-              child: Column(
-                //TODO: 4. Atur mainAxisAlignment dan CrossAxisAlignment
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  //TODO: 5. Buat TextFromField untuk nama pengguna
-                  TextFormField(
-                    controller: _usernameController,
-                    decoration: const InputDecoration(
-                      labelText: 'Nama Pengguna',
-                      hintText: 'Masukkan nama pengguna',
-                      border: OutlineInputBorder(),
-                    ),
+                child: Column(
+              // Atur mainAxisAlignment dan crossAxisAlignment
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // buat TextFormField untuk nama pengguna
+                TextFormField(
+                  controller: _usernameController,
+                  decoration: const InputDecoration(
+                    labelText: "Nama Pengguna",
+                    hintText: "Masukkan nama pengguna Anda",
+                    border: OutlineInputBorder(),
                   ),
-                  //TODO: 6. Buat TextFromField untuk kata sandi
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  TextFormField(
-                    controller: _passwordController,
-                    decoration: InputDecoration(
-                      labelText: 'Kata Sandi',
-                      hintText: 'Masukkan kata sandi',
-                      border: const OutlineInputBorder(),
-                      errorText: _errorText.isNotEmpty ? _errorText : null,
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            _obscurePassword = !_obscurePassword;
-                          });
-                        },
-                        icon: Icon(
-                          _obscurePassword
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                        ),
+                ),
+                // buat TextFormField untuk kata sandi
+                const SizedBox(height: 20),
+                TextFormField(
+                  controller: _passwordController,
+                  decoration: InputDecoration(
+                    labelText: "Kata Sandi",
+                    hintText: "Masukkan kata sandi",
+                    border: const OutlineInputBorder(),
+                    errorText: _errorText.isNotEmpty ? _errorText : null,
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          _obscurePassword = !_obscurePassword;
+                        });
+                      },
+                      icon: Icon(
+                        _obscurePassword ? Icons.visibility_off : Icons.visibility,
                       ),
                     ),
-                    obscureText: _obscurePassword,
                   ),
-                  //TODO: 7. Buat TextFromField untuk Sign In
-                  const SizedBox(
-                    height: 20,
+                  obscureText: _obscurePassword,
+                ),
+                // buat ElevatedButton untuk sign in
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Sign In'),
+                ),
+                //Pasang textButton untuk sign up
+                const SizedBox(
+                  height: 10,
+                ),
+                //   TextButton(onPressed: () {},
+                //   child: const Text('Belum punya akun? Daftar di sini.')
+                // ),
+                RichText(
+                  text: TextSpan(
+                    text: "Belum punya akun?",
+                    style: TextStyle(color: Colors.deepPurple, fontSize: 16),
+                    children: [
+                      TextSpan(
+                        text: " Daftar di sini.",
+                        style: const TextStyle(
+                          color: Colors.blue, 
+                          fontSize: 16,
+                          decoration: TextDecoration.underline,),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {},
+                      ),
+                    ],
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()),
-                      );
-                    },
-                    child: const Text('Sign In'),
-                  ),
-                  //TODO: 8. Pasang TextButton untuk SignUp
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  // TextButton(
-                  //   onPressed: (){},
-                  //   child: Text('Belum punya akun? Daftar di sini.'),
-                  //   ),
-                  RichText(
-                    text: TextSpan(
-                      text: 'Belum punya akun?',
-                      style: const TextStyle(
-                          fontSize: 16, color: Colors.deepPurple),
-                      children: [
-                        TextSpan(
-                          text: 'Daftar di sini.',
-                          style: const TextStyle(
-                            fontSize: 16,
-                            color: Colors.blue,
-                            decoration: TextDecoration.underline,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SignUpScreen()),
-                              );
-                            },
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
+                )
+              ],
+            )),
           ),
         ),
       ),
